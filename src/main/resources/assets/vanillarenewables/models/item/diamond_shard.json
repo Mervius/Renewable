@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vanillarenewables:item/diamond_shard"
+  }
+}
