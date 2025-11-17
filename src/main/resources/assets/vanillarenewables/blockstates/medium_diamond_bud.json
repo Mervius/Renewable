@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "vanillarenewables:block/medium_diamond_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "vanillarenewables:block/medium_diamond_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "vanillarenewables:block/medium_diamond_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "vanillarenewables:block/medium_diamond_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "vanillarenewables:block/medium_diamond_bud"
+    },
+    "facing=west": {
+      "model": "vanillarenewables:block/medium_diamond_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

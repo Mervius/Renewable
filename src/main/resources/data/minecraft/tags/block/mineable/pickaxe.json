@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "vanillarenewables:diamond_cluster",
+    "vanillarenewables:small_diamond_bud",
+    "vanillarenewables:medium_diamond_bud",
+    "vanillarenewables:large_diamond_bud",
+    "vanillarenewables:budding_diamond"
+  ]
+}
