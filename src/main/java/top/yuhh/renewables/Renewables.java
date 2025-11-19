@@ -23,7 +23,7 @@ import top.yuhh.item.ModItems;
 @Mod(Renewables.MOD_ID)
 public class Renewables {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "vanillarenewables";
+    public static final String MOD_ID = "vanilla_renewables";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 

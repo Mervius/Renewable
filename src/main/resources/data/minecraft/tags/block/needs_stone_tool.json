@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "vanilla_renewables:rich_graphite",
-    "vanilla_renewables:laced_graphite",
     "vanilla_renewables:graphite_block"
   ]
 }

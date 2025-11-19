@@ -1,37 +1,18 @@
 {
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc",
-	"ingredients": [
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        },
-		{
-			"item": "vanillarenewables:diamond_shard"
-        }
-	],
-	"result": {
-		"id": "minecraft:diamond",
-		"count": 1
-	}
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "vanilla_renewables:diamond_shard"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:diamond"
+  }
 }

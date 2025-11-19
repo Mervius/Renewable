@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "vanilla_renewables:block/laced_graphite"
+  }
+}

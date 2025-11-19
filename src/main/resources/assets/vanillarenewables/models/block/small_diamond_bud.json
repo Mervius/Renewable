@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "vanillarenewables:block/small_diamond_bud"
-  }
-}

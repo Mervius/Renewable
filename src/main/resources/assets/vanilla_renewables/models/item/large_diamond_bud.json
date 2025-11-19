@@ -1,0 +1,11 @@
+  {
+  "parent": "vanilla_renewables:item/diamond_bud",
+  "textures": {
+    "layer0": "vanilla_renewables:block/large_diamond_bud"
+  },
+  "display": {
+    "fixed": {
+      "translation": [ 0, 4, 0 ]
+    }
+  }
+}
