@@ -1,4 +1,4 @@
-package top.yuhh.block;
+package top.yuhh.renewables.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

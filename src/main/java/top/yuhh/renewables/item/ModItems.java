@@ -1,4 +1,4 @@
-package top.yuhh.item;
+package top.yuhh.renewables.item;
 
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;

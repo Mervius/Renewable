@@ -1,4 +1,4 @@
-package top.yuhh.block;
+package top.yuhh.renewables.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -6,12 +6,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.stream.Stream;
 
 import static java.lang.Math.pow;
 import static net.minecraft.util.Mth.*;

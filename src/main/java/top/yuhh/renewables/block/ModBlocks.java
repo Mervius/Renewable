@@ -1,4 +1,4 @@
-package top.yuhh.block;
+package top.yuhh.renewables.block;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import top.yuhh.item.ModItems;
+import top.yuhh.renewables.item.ModItems;
 import top.yuhh.renewables.Renewables;
 
 import java.util.function.Supplier;

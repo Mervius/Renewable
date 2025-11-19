@@ -17,8 +17,8 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import top.yuhh.block.ModBlocks;
-import top.yuhh.item.ModItems;
+import top.yuhh.renewables.block.ModBlocks;
+import top.yuhh.renewables.item.ModItems;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Renewables.MOD_ID)
