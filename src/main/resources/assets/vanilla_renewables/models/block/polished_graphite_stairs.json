@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "vanilla_renewables:block/polished_graphite",
+    "side": "vanilla_renewables:block/polished_graphite",
+    "top": "vanilla_renewables:block/polished_graphite"
+  }
+}

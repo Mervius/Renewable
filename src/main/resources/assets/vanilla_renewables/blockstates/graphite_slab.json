@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "vanilla_renewables:block/graphite_slab"
+    },
+    "type=double": {
+      "model": "vanilla_renewables:block/graphite_block"
+    },
+    "type=top": {
+      "model": "vanilla_renewables:block/graphite_slab_top"
+    }
+  }
+}

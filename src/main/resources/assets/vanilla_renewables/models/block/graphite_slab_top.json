@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "vanilla_renewables:block/graphite_block",
+    "side": "vanilla_renewables:block/graphite_block",
+    "top": "vanilla_renewables:block/graphite_block"
+  }
+}

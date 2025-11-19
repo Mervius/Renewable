@@ -3,6 +3,13 @@
   "values": [
     "vanilla_renewables:rich_graphite",
     "vanilla_renewables:laced_graphite",
-    "vanilla_renewables:graphite_block"
+    "vanilla_renewables:graphite_block",
+    "vanilla_renewables:graphite_slab",
+    "vanilla_renewables:graphite_stairs",
+    "vanilla_renewables:graphite_wall",
+    "vanilla_renewables:polished_graphite",
+    "vanilla_renewables:polished_graphite_slab",
+    "vanilla_renewables:polished_graphite_stairs",
+    "vanilla_renewables:polished_graphite_wall"
   ]
 }

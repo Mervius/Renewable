@@ -1,5 +1,6 @@
 package top.yuhh.renewables;
 
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
@@ -53,8 +54,19 @@ public class Renewables {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS & event.getParentEntries().contains(Items.GOLD_NUGGET.getDefaultInstance())) {
+        ResourceKey<CreativeModeTab> key = event.getTabKey();
+        if(key == CreativeModeTabs.INGREDIENTS & event.getParentEntries().contains(Items.GOLD_NUGGET.getDefaultInstance())) {
             event.insertAfter(Items.GOLD_NUGGET.getDefaultInstance(),ModItems.DIAMOND_SHARD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        } else if (key == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.GRAPHITE);
+            event.accept(ModBlocks.GRAPHITE_STAIRS);
+            event.accept(ModBlocks.GRAPHITE_SLAB);
+            event.accept(ModBlocks.GRAPHITE_WALL);
+            event.accept(ModBlocks.POLISHED_GRAPHITE);
+        } else if (key == CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(ModBlocks.GRAPHITE);
+            event.accept(ModBlocks.LACED_GRAPHITE);
+            event.accept(ModBlocks.RICH_GRAPHITE);
         }
     }
 
