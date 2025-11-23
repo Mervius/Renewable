@@ -12,8 +12,6 @@ import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import top.yuhh.renewables.Renewables;
 
-import java.util.Set;
-
 public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_GRAPHITE = registerKey("add_graphite");
 
