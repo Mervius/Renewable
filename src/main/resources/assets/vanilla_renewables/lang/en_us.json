@@ -9,5 +9,9 @@
   "block.vanilla_renewables.polished_graphite": "Polished Graphite",
   "block.vanilla_renewables.polished_graphite_stairs": "Polished Graphite Stairs",
   "block.vanilla_renewables.polished_graphite_slab": "Polished Graphite Slab",
-  "block.vanilla_renewables.polished_graphite_wall": "Polished Graphite Wall"
+  "block.vanilla_renewables.polished_graphite_wall": "Polished Graphite Wall",
+  "block.vanilla_renewables.graphite_bricks": "Graphite Bricks",
+  "block.vanilla_renewables.graphite_brick_stairs": "Graphite Brick Stairs",
+  "block.vanilla_renewables.graphite_brick_slab": "Graphite Brick Slab",
+  "block.vanilla_renewables.graphite_brick_wall": "Graphite Brick Wall"
 }
