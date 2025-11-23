@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smelting",
-  "category": "blocks",
+  "category": "misc",
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
@@ -8,6 +8,6 @@
   },
   "result": {
     "count": 1,
-    "id": "vanilla_renewables:rich_graphite"
+    "id": "minecraft:diamond"
   }
 }

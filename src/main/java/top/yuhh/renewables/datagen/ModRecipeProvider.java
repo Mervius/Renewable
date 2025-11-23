@@ -81,13 +81,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected void buildSmeltingRecipe(RecipeCategory recipeCategory, ItemLike result, ItemLike input, float experience, int cookingtime, RecipeOutput recipeOutput) {
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input),recipeCategory,input.asItem(),experience,cookingtime)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input),recipeCategory, result.asItem(),experience,cookingtime)
                 .unlockedBy(MessageFormat.format("has_{0}",BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()), has(input))
                 .save(recipeOutput, MessageFormat.format("{0}:{1}_from_smelting_{2}", Renewables.MOD_ID,BuiltInRegistries.ITEM.getKey(result.asItem()).getPath(), BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()));
     }
 
     protected void buildBlastingRecipe(RecipeCategory recipeCategory, ItemLike result, ItemLike input, float experience, int cookingtime, RecipeOutput recipeOutput) {
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(input),recipeCategory,input.asItem(),experience,cookingtime)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(input),recipeCategory,result.asItem(),experience,cookingtime)
                 .unlockedBy(MessageFormat.format("has_{0}",BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()), has(input))
                 .save(recipeOutput, MessageFormat.format("{0}:{1}_from_blasting_{2}", Renewables.MOD_ID,BuiltInRegistries.ITEM.getKey(result.asItem()).getPath(), BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()));
     }
