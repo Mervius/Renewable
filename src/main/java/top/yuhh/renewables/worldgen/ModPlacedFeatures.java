@@ -16,16 +16,12 @@ import java.util.List;
 
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GRAPHITE = registerKey("graphite_placed");
-    public static final ResourceKey<PlacedFeature> RICH_GRAPHITE = registerKey("rich_graphite_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, GRAPHITE, configuredFeatures.getOrThrow(ModConfiguredFeatures.GRAPHITE_KEY),
-                ModOrePlacement.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(20))));
-        register(context, RICH_GRAPHITE, configuredFeatures.getOrThrow(ModConfiguredFeatures.RICH_GRAPHITE_KEY),
-                ModOrePlacement.rareOrePlacement(8, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(20))));
-
+                ModOrePlacement.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(50))));
     }
 
 
@@ -33,8 +29,8 @@ public class ModPlacedFeatures {
         return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(Renewables.MOD_ID, name));
     }
 
-    private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> ke, Holder<ConfiguredFeature<?, ?>> configuration,
-                                 List<PlacementModifier> modifier) {
-
+    private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration,
+                                 List<PlacementModifier> modifiers) {
+        context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
 }

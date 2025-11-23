@@ -1,5 +1,4 @@
-// 1.21.1	2025-11-22T22:20:54.016057576	Registries
+// 1.21.1	2025-11-23T00:24:54.876842933	Registries
 46d819d9433b22514a70a526a4a7309594db6d69 data/vanilla_renewables/neoforge/biome_modifier/add_graphite.json
-dc999190fd1683e604e2d5900140ba27a0bad100 data/vanilla_renewables/neoforge/biome_modifier/add_rich_graphite.json
-190b284f3327c6322f0e8bd4d91df9bcb8b8a10f data/vanilla_renewables/worldgen/configured_feature/graphite.json
-de41e9052fd7b4f2cda26865971adacf7676894e data/vanilla_renewables/worldgen/configured_feature/rich_graphite.json
+9eb707eb1419df9dd446bbef87178bdfd51e066a data/vanilla_renewables/worldgen/configured_feature/graphite.json
+93249e471c227a281d1e3695c86c2f8656dd82e6 data/vanilla_renewables/worldgen/placed_feature/graphite_placed.json

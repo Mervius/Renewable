@@ -12,6 +12,24 @@
           "predicate_type": "minecraft:tag_match",
           "tag": "minecraft:base_stone_overworld"
         }
+      },
+      {
+        "state": {
+          "Name": "vanilla_renewables:rich_graphite"
+        },
+        "target": {
+          "block": "minecraft:diamond_ore",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "vanilla_renewables:rich_graphite"
+        },
+        "target": {
+          "block": "minecraft:deepslate_diamond_ore",
+          "predicate_type": "minecraft:block_match"
+        }
       }
     ]
   }
