@@ -32,7 +32,7 @@ public class RichGraphiteBlock extends Block {
     public RichGraphiteBlock(Properties properties) { super(properties); }
 
     @Override
-    protected void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random) {
+    protected void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         boolean touchinglava = false;
         BlockPos.MutableBlockPos mutableblockpos = new BlockPos.MutableBlockPos();
         for (Direction direction : DIRECTIONS) {
@@ -50,7 +50,7 @@ public class RichGraphiteBlock extends Block {
     }
 
     public static void grow(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random, boolean lava) {
-        if (random.nextInt(clamp((int) floor(pow(1.0244, pos.getY() + clamp(abs(level.getMinBuildHeight()),Double.NEGATIVE_INFINITY,0))),0,10000) + 2) == 0) {
+        if (random.nextInt(clamp(floor(pow(1.0244, pos.getY() + clamp(abs(level.getMinBuildHeight()),Double.NEGATIVE_INFINITY,0))),0,10000) + 2) == 0) {
             Block block = null;
             BlockPos blockpos = pos;
             int step = 0;
@@ -84,7 +84,7 @@ public class RichGraphiteBlock extends Block {
                         break;
                     }
                     BlockState blockstate = level.getBlockState(blockpos);
-                    if (blockstate.is(ModBlocks.GRAPHITE)) {
+                    if (blockstate.is(ModBlocks.GRAPHITE_BLOCK)) {
                         if (random.nextInt(lava ? 1000 : 5000) != 0) {
                             block = ModBlocks.LACED_GRAPHITE.get();
                         } else {

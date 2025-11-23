@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_graphite_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla_renewables:graphite_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla_renewables:graphite_brick_stairs_from_stonecutting_graphite_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_graphite_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla_renewables:graphite_brick_stairs_from_stonecutting_graphite_bricks"
+    ]
+  }
+}

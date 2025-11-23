@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "vanilla_renewables:block/graphite_bricks",
+    "side": "vanilla_renewables:block/graphite_bricks",
+    "top": "vanilla_renewables:block/graphite_bricks"
+  }
+}

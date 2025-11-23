@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "vanilla_renewables:block/graphite_bricks"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "vanilla_renewables:rich_graphite"
+  },
+  "result": {
+    "count": 1,
+    "id": "vanilla_renewables:rich_graphite"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "vanilla_renewables:laced_graphite"
+  },
+  "result": {
+    "count": 1,
+    "id": "vanilla_renewables:laced_graphite"
+  }
+}

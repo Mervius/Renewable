@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_graphite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla_renewables:polished_graphite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla_renewables:polished_graphite_slab_from_stonecutting_polished_graphite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_graphite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla_renewables:polished_graphite_slab_from_stonecutting_polished_graphite"
+    ]
+  }
+}

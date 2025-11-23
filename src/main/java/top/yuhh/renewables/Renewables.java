@@ -4,6 +4,9 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -49,6 +52,11 @@ public class Renewables {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> FluidInteractionRegistry.addInteraction(NeoForgeMod.LAVA_TYPE.value(),
+                new FluidInteractionRegistry.InteractionInformation(
+                (level, currentPos, relativePos, currentState) -> level.getBlockState(currentPos.below()).is(Blocks.DEEPSLATE) && level.getBlockState(relativePos).is(Blocks.COAL_BLOCK),
+                ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState()))
+        );
 
     }
 
@@ -58,13 +66,20 @@ public class Renewables {
         if(key == CreativeModeTabs.INGREDIENTS & event.getParentEntries().contains(Items.GOLD_NUGGET.getDefaultInstance())) {
             event.insertAfter(Items.GOLD_NUGGET.getDefaultInstance(),ModItems.DIAMOND_SHARD.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         } else if (key == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.GRAPHITE);
+            event.accept(ModBlocks.GRAPHITE_BLOCK);
             event.accept(ModBlocks.GRAPHITE_STAIRS);
             event.accept(ModBlocks.GRAPHITE_SLAB);
             event.accept(ModBlocks.GRAPHITE_WALL);
             event.accept(ModBlocks.POLISHED_GRAPHITE);
+            event.accept(ModBlocks.POLISHED_GRAPHITE_STAIRS);
+            event.accept(ModBlocks.POLISHED_GRAPHITE_SLAB);
+            event.accept(ModBlocks.POLISHED_GRAPHITE_WALL);
+            event.accept(ModBlocks.GRAPHITE_BRICKS);
+            event.accept(ModBlocks.GRAPHITE_BRICK_STAIRS);
+            event.accept(ModBlocks.GRAPHITE_BRICK_SLAB);
+            event.accept(ModBlocks.GRAPHITE_BRICK_WALL);
         } else if (key == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.accept(ModBlocks.GRAPHITE);
+            event.accept(ModBlocks.GRAPHITE_BLOCK);
             event.accept(ModBlocks.LACED_GRAPHITE);
             event.accept(ModBlocks.RICH_GRAPHITE);
         }

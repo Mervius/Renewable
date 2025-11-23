@@ -60,7 +60,7 @@ public class LacedGraphiteBlock extends Block {
         int chance = 1;
         if (lava) chance = 2;
         if (random.nextInt(floor(100000.0/pow((double) pos.getY() - (double)height + 1, 2.0)) * chance) == 0) {
-            level.setBlockAndUpdate(pos, ModBlocks.GRAPHITE.get().defaultBlockState());
+            level.setBlockAndUpdate(pos, ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState());
         }
     }
 

@@ -15,13 +15,13 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Renewables.MOD_ID);
 
-    public static final DeferredBlock<Block> GRAPHITE = registerBlock("graphite_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
+    public static final DeferredBlock<Block> GRAPHITE_BLOCK = registerBlock("graphite_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
     public static final DeferredBlock<Block> GRAPHITE_SLAB = registerBlock("graphite_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
-    public static final DeferredBlock<Block> GRAPHITE_STAIRS = registerBlock("graphite_stairs", () -> new StairBlock(ModBlocks.GRAPHITE.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
+    public static final DeferredBlock<Block> GRAPHITE_STAIRS = registerBlock("graphite_stairs", () -> new StairBlock(ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
-    public static final DeferredBlock<Block> GRAPHITE_WALL = registerBlock("graphite_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(GRAPHITE.get()).forceSolidOn()));
+    public static final DeferredBlock<Block> GRAPHITE_WALL = registerBlock("graphite_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(GRAPHITE_BLOCK.get()).forceSolidOn()));
 
     public static final DeferredBlock<Block> POLISHED_GRAPHITE = registerBlock("polished_graphite", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
@@ -35,14 +35,13 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> RICH_GRAPHITE = registerBlock("rich_graphite", () -> new RichGraphiteBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(3.5F,3F)));
 
+    public static final DeferredBlock<Block> GRAPHITE_BRICKS = registerBlock("graphite_bricks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
-//    public static final DeferredBlock<Block> DIAMOND_CLUSTER = registerBlock("diamond_cluster", () -> new DiamondClusterBlock(7.0F, 3.0F, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).forceSolidOn().noOcclusion().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel($$0 -> 5).pushReaction(PushReaction.DESTROY)));
-//
-//    public static final DeferredBlock<Block> LARGE_DIAMOND_BUD = registerBlock("large_diamond_bud", () -> new DiamondClusterBlock(5.0F, 3.0F, BlockBehaviour.Properties.ofLegacyCopy(DIAMOND_CLUSTER.get()).sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel($$0 -> 4)));
-//
-//    public static final DeferredBlock<Block> MEDIUM_DIAMOND_BUD = registerBlock("medium_diamond_bud", () -> new DiamondClusterBlock(4.0F, 3.0F, BlockBehaviour.Properties.ofLegacyCopy(DIAMOND_CLUSTER.get()).sound(SoundType.LARGE_AMETHYST_BUD).lightLevel($$0 -> 2)));
-//
-//    public static final DeferredBlock<Block> SMALL_DIAMOND_BUD = registerBlock("small_diamond_bud", () -> new DiamondClusterBlock(3.0F, 4.0F, BlockBehaviour.Properties.ofLegacyCopy(DIAMOND_CLUSTER.get()).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel($$0 -> 1)));
+    public static final DeferredBlock<Block> GRAPHITE_BRICK_SLAB = registerBlock("graphite_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
+
+    public static final DeferredBlock<Block> GRAPHITE_BRICK_STAIRS = registerBlock("graphite_brick_stairs", () -> new StairBlock(ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
+
+    public static final DeferredBlock<Block> GRAPHITE_BRICK_WALL = registerBlock("graphite_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(GRAPHITE_BLOCK.get()).forceSolidOn()));
 
     private  static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
