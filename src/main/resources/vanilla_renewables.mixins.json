@@ -3,7 +3,8 @@
   "package": "top.yuhh.renewables.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "EnderDragonLootMixin"
+    "EnderDragonLootMixin",
+    "EnderDragonEggMixin"
   ],
   "client": [
 
