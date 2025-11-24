@@ -81,10 +81,11 @@ public class RichGraphiteBlock extends DropExperienceBlock {
             level.getBlockStates(box).forEach(blocks ->{
                 if (blocks.is(ModBlocks.LACED_GRAPHITE)) {
                     counts[0]++;
-                } else {
+                } else if (blocks.is(ModBlocks.RICH_GRAPHITE)) {
                     counts[1]++;
                 }
                     });
+            System.out.println(counts[0] + ":" + counts[1]);
             if (counts[0] < (MAX_COUNT * counts[1])) {
                 while (step < MAX_STEPS) {
                     if (random.nextInt(HORIZONTAL_CHANCE + VERTICAL_CHANCE) < HORIZONTAL_CHANCE) {
