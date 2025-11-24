@@ -11,6 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//  I don't think anyone will ever do this because this is incredibly stupid, but this is in line with other mob heads... so...
+
 @Mixin(Mob.class)
 public class EnderDragonLootMixin {
     @Inject(method = "dropCustomDeathLoot", at = @At("HEAD"), cancellable = true)
