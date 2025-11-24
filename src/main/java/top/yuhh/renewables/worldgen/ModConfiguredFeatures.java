@@ -29,7 +29,7 @@ public class ModConfiguredFeatures {
 
         List<OreConfiguration.TargetBlockState> graphite = List.of(OreConfiguration.target(graphiteReplaceables, ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState()),OreConfiguration.target(diamondReplaceablesStone, ModBlocks.RICH_GRAPHITE.get().defaultBlockState()), OreConfiguration.target(diamondReplaceablesDeepslate, ModBlocks.RICH_GRAPHITE.get().defaultBlockState()));
 
-        register(context, GRAPHITE_KEY, Feature.ORE, new OreConfiguration(graphite, 16));
+        register(context, GRAPHITE_KEY, Feature.ORE, new OreConfiguration(graphite, 32));
 
     }
 

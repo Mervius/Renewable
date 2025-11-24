@@ -59,13 +59,16 @@ public class RichGraphiteBlock extends Block {
             int dirint;
             Direction direction;
             AABB box = new AABB(pos.getX() - 3, pos.getY() - 3, pos.getZ() - 3, pos.getX() + 3, pos.getY() + 3, pos.getZ() + 3);
-            long counts = level.getBlockStates(box)
-                    .filter(blockstate -> blockstate.getBlock() == ModBlocks.LACED_GRAPHITE.get())
-                    .count();
-            long extra = level.getBlockStates(box)
-                    .filter(blockstate -> blockstate.getBlock() == ModBlocks.RICH_GRAPHITE.get())
-                    .count();
-            if (counts < (MAX_COUNT * extra)) {
+
+            int[] counts = new int[2]; // counts[0] = LACED, counts[1] = RICH
+            level.getBlockStates(box).forEach(blocks ->{
+                if (blocks.is(ModBlocks.LACED_GRAPHITE)) {
+                    counts[0]++;
+                } else {
+                    counts[1]++;
+                }
+                    });
+            if (counts[0] < (MAX_COUNT * counts[1])) {
                 while (step < MAX_STEPS) {
                     if (random.nextInt(HORIZONTAL_CHANCE + VERTICAL_CHANCE) < HORIZONTAL_CHANCE) {
                         dirint = horizontalIfPossible(horizontalstep, verticalstep, random, false);
@@ -98,7 +101,6 @@ public class RichGraphiteBlock extends Block {
                     }
 
                 }
-
 
                 if (block != null) {
                     BlockState blockstate1 = block.defaultBlockState();
