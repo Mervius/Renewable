@@ -75,7 +75,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, MessageFormat.format("{0}:{1}_from_stonecutting_{2}", Renewables.MOD_ID,BuiltInRegistries.ITEM.getKey(result.asItem()).getPath(), BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()));
     }
 
-        protected void buildSmeltingBlastingRecipe(RecipeCategory recipeCategory, ItemLike result, ItemLike input, float experience, int cookingtime, RecipeOutput recipeOutput) {
+    protected void buildSmeltingBlastingRecipe(RecipeCategory recipeCategory, ItemLike result, ItemLike input, float experience, int cookingtime, RecipeOutput recipeOutput) {
         buildSmeltingRecipe(recipeCategory, result, input, experience, cookingtime, recipeOutput);
         buildBlastingRecipe(recipeCategory, result, input, experience, cookingtime/2, recipeOutput);
     }
