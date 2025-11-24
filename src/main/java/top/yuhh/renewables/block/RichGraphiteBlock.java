@@ -52,7 +52,6 @@ public class RichGraphiteBlock extends Block {
     public static void grow(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random, boolean lava) {
         int height = level.getMinBuildHeight();
         if (height > 0) height = 0;
-        System.out.println(clamp(floor(pow(1.0244,pos.getY() - height)),1,10000));
         if (random.nextInt(clamp(floor(pow(1.0244,pos.getY() - height)),1,10000) + 2) == 0) {
             Block block = null;
             BlockPos blockpos = pos;
