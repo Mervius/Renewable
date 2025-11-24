@@ -15,6 +15,10 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Renewables.MOD_ID);
 
+    public static final DeferredBlock<Block> LACED_GRAPHITE = registerBlock("laced_graphite", () -> new LacedGraphiteBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(4.5F,4F)));
+
+    public static final DeferredBlock<Block> RICH_GRAPHITE = registerBlock("rich_graphite", () -> new RichGraphiteBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(3.5F,3F)));
+
     public static final DeferredBlock<Block> GRAPHITE_BLOCK = registerBlock("graphite_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
     public static final DeferredBlock<Block> GRAPHITE_SLAB = registerBlock("graphite_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
@@ -30,10 +34,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> POLISHED_GRAPHITE_STAIRS = registerBlock("polished_graphite_stairs", () -> new StairBlock(ModBlocks.POLISHED_GRAPHITE.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
     public static final DeferredBlock<Block> POLISHED_GRAPHITE_WALL = registerBlock("polished_graphite_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(POLISHED_GRAPHITE.get()).forceSolidOn()));
-
-    public static final DeferredBlock<Block> LACED_GRAPHITE = registerBlock("laced_graphite", () -> new LacedGraphiteBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(4.5F,4F)));
-
-    public static final DeferredBlock<Block> RICH_GRAPHITE = registerBlock("rich_graphite", () -> new RichGraphiteBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(3.5F,3F)));
 
     public static final DeferredBlock<Block> GRAPHITE_BRICKS = registerBlock("graphite_bricks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 

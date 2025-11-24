@@ -35,6 +35,7 @@ public class RichGraphiteBlock extends Block {
     protected void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         boolean touchinglava = false;
         BlockPos.MutableBlockPos mutableblockpos = new BlockPos.MutableBlockPos();
+//  Test if the block is adjacent to a lava source.
         for (Direction direction : DIRECTIONS) {
             mutableblockpos.setWithOffset(pos, direction);
             if (level.getBlockState(mutableblockpos).is(Blocks.LAVA) && level.getBlockState(mutableblockpos).getFluidState().isSource()) {
@@ -52,6 +53,10 @@ public class RichGraphiteBlock extends Block {
     public static void grow(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random, boolean lava) {
         int height = level.getMinBuildHeight();
         if (height > 0) height = 0;
+/*
+    This essentially will resolve to Y = 1.0244^(X+64) where X is the block's height in any world without a modified minimum build limit. But I didn't hardcode in +64 just in case.
+    The clamp is to avoid any accidental overflows and negatives
+*/
         if (random.nextInt(clamp(floor(pow(1.0244,pos.getY() - height)),1,10000) + 2) == 0) {
             Block block = null;
             BlockPos blockpos = pos;

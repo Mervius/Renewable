@@ -41,9 +41,11 @@ public class LacedGraphiteBlock extends Block {
 
     @Override
     protected void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+//  Skip if placed by a player.
         if (!state.getValue(PERSISTENT)) {
             boolean touchinglava = false;
             BlockPos.MutableBlockPos mutableblockpos = new BlockPos.MutableBlockPos();
+//      Test if the block is adjacent to a lava source.
             for (Direction direction : DIRECTIONS) {
                 mutableblockpos.setWithOffset(pos, direction);
                 if (level.getBlockState(mutableblockpos).is(Blocks.LAVA) && level.getBlockState(mutableblockpos).getFluidState().isSource()) {
@@ -59,6 +61,11 @@ public class LacedGraphiteBlock extends Block {
         if (height > 0) height = 0;
         int chance = 1;
         if (lava) chance = 2;
+/*
+    This essentially will resolve to Y = 100000/(((X+64)^2)+1) where X is the block's height in any world without a modified minimum build limit. But I didn't hardcode in +64 just in case.
+    The +1 is to avoid the divide by zero value that occurs at x=-64
+    The chance is halved if it is adjacent to a lava source.
+*/
         if (random.nextInt(floor(100000.0/pow((double) pos.getY() - (double)height + 1, 2.0)) * chance) == 0) {
             level.setBlockAndUpdate(pos, ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState());
         }
