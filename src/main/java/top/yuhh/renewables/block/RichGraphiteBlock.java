@@ -1,11 +1,14 @@
 package top.yuhh.renewables.block;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
@@ -14,8 +17,12 @@ import static java.lang.Math.pow;
 import static net.minecraft.util.Mth.*;
 
 
-public class RichGraphiteBlock extends Block {
-    public static final MapCodec<RichGraphiteBlock> CODEC = simpleCodec(RichGraphiteBlock::new);
+public class RichGraphiteBlock extends DropExperienceBlock {
+    public static final MapCodec<RichGraphiteBlock> CODEC = RecordCodecBuilder.mapCodec(
+            p_308822_ -> p_308822_.group(IntProvider.codec(0, 10).fieldOf("experience").forGetter(p_304879_ -> p_304879_.xpRange), propertiesCodec())
+                    .apply(p_308822_, RichGraphiteBlock::new)
+    );
+    private final IntProvider xpRange;
 //    public static final int GROWTH_CHANCE = 5;
     public static final int HORIZONTAL_CHANCE = 5;
     public static final int VERTICAL_CHANCE = 1;
@@ -29,7 +36,10 @@ public class RichGraphiteBlock extends Block {
     public @NotNull MapCodec<RichGraphiteBlock> codec() { return CODEC; }
 
 
-    public RichGraphiteBlock(Properties properties) { super(properties); }
+    public RichGraphiteBlock(IntProvider xpRange, BlockBehaviour.Properties properties) {
+        super(xpRange, properties);
+        this.xpRange = xpRange;
+    }
 
     @Override
     protected void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {

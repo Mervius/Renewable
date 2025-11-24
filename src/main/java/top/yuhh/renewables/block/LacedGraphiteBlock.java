@@ -1,13 +1,17 @@
 package top.yuhh.renewables.block;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -18,8 +22,12 @@ import static java.lang.Math.pow;
 import static net.minecraft.util.Mth.*;
 
 
-public class LacedGraphiteBlock extends Block {
-    public static final MapCodec<LacedGraphiteBlock> CODEC = simpleCodec(LacedGraphiteBlock::new);
+public class LacedGraphiteBlock extends DropExperienceBlock {
+    public static final MapCodec<LacedGraphiteBlock> CODEC = RecordCodecBuilder.mapCodec(
+            p_308822_ -> p_308822_.group(IntProvider.codec(0, 10).fieldOf("experience").forGetter(p_304879_ -> p_304879_.xpRange), propertiesCodec())
+                    .apply(p_308822_, LacedGraphiteBlock::new)
+    );
+    private final IntProvider xpRange;
 
     public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
 
@@ -30,8 +38,9 @@ public class LacedGraphiteBlock extends Block {
     public @NotNull MapCodec<LacedGraphiteBlock> codec() { return CODEC; }
 
 
-    public LacedGraphiteBlock(Properties properties) {
-        super(properties);
+    public LacedGraphiteBlock(IntProvider xpRange, BlockBehaviour.Properties properties) {
+        super(xpRange, properties);
+        this.xpRange = xpRange;
         this.registerDefaultState(
                 this.stateDefinition
                         .any()

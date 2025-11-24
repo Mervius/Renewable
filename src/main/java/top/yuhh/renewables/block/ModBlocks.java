@@ -1,5 +1,6 @@
 package top.yuhh.renewables.block;
 
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -15,9 +16,9 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Renewables.MOD_ID);
 
-    public static final DeferredBlock<Block> LACED_GRAPHITE = registerBlock("laced_graphite", () -> new LacedGraphiteBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(4.5F,4F)));
+    public static final DeferredBlock<Block> LACED_GRAPHITE = registerBlock("laced_graphite", () -> new LacedGraphiteBlock(UniformInt.of(0, 2), BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(4.5F,4F)));
 
-    public static final DeferredBlock<Block> RICH_GRAPHITE = registerBlock("rich_graphite", () -> new RichGraphiteBlock(BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(3.5F,3F)));
+    public static final DeferredBlock<Block> RICH_GRAPHITE = registerBlock("rich_graphite", () -> new RichGraphiteBlock(UniformInt.of(0,2), BlockBehaviour.Properties.of().sound(SoundType.TUFF).randomTicks().requiresCorrectToolForDrops().strength(3.5F,3F)));
 
     public static final DeferredBlock<Block> GRAPHITE_BLOCK = registerBlock("graphite_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
@@ -42,6 +43,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> GRAPHITE_BRICK_STAIRS = registerBlock("graphite_brick_stairs", () -> new StairBlock(ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.TUFF).requiresCorrectToolForDrops().strength(4.5F,4F)));
 
     public static final DeferredBlock<Block> GRAPHITE_BRICK_WALL = registerBlock("graphite_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(GRAPHITE_BLOCK.get()).forceSolidOn()));
+
+    public static final DeferredBlock<Block> NETHERITE_CATALYST = registerBlock("netherite_catalyst", () -> new NetheriteCatalystBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
     private  static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
