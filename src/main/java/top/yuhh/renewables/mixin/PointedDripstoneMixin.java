@@ -1,12 +1,9 @@
 package top.yuhh.renewables.mixin;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.AbstractCauldronBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PointedDripstoneBlock;
@@ -56,26 +53,6 @@ public abstract class PointedDripstoneMixin {
     @Shadow
     private static BlockPos findTip(BlockState state, LevelAccessor level, BlockPos pos, int maxIterations, boolean isTipMerge) {
         return pos;
-    }
-
-    @Shadow
-    private static boolean canDripThrough(BlockGetter level, BlockPos pos, BlockState state) {
-        return false;
-    }
-
-    @Unique
-    private static void renewable$growCalciteBelow(ServerLevel level, BlockPos pos) {
-        BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
-        for (int i = 0; i < 10; i++) {
-            blockpos$mutableblockpos.move(Direction.DOWN);
-            BlockState blockstate = level.getBlockState(blockpos$mutableblockpos);
-            if (!canDripThrough(level, blockpos$mutableblockpos, blockstate)) {
-                if (level.getBlockState(blockpos$mutableblockpos.above()).isAir() && !(level.getBlockState(blockpos$mutableblockpos).getBlock() instanceof AbstractCauldronBlock)) {
-                    level.setBlockAndUpdate(blockpos$mutableblockpos.above(), Blocks.CALCITE.defaultBlockState());
-                }
-                return;
-            }
-        }
     }
 
     @Inject(method = "maybeTransferFluid", at = @At(value = "TAIL"))
