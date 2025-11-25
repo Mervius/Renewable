@@ -28,52 +28,54 @@ import java.util.UUID;
 @Mixin(EndDragonFight.class)
 public class EnderDragonEggMixin {
 
-@Shadow
-private UUID dragonUUID;
+    @Shadow
+    private UUID dragonUUID;
 
-@Final
-@Shadow
-private ServerBossEvent dragonEvent;
+    @Final
+    @Shadow
+    private ServerBossEvent dragonEvent;
 
-@Shadow
-private boolean previouslyKilled;
+    @Shadow
+    private boolean previouslyKilled;
 
-@Final
-@Shadow
-private ServerLevel level;
+    @Final
+    @Shadow
+    private ServerLevel level;
 
-@Final
-@Shadow
-private BlockPos origin;
+    @Final
+    @Shadow
+    private BlockPos origin;
 
-@Shadow
-private boolean dragonKilled;
+    @Shadow
+    private boolean dragonKilled;
 
-@Shadow
-private void spawnExitPortal(boolean active) {}
+    @Shadow
+    private void spawnExitPortal(boolean active) {
+    }
 
-@Shadow
-private void spawnNewGateway() {}
+    @Shadow
+    private void spawnNewGateway() {
+    }
 
     /**
- * @author Daniel Hagemeier
- * @reason Removing previously killed check
- */
-@Overwrite
-public void setDragonKilled(EnderDragon dragon) {
-    if (dragon.getUUID().equals(this.dragonUUID)) {
-        this.dragonEvent.setProgress(0.0F);
-        this.dragonEvent.setVisible(false);
-        this.spawnExitPortal(true);
-        this.spawnNewGateway();
-        this.level
-                .setBlockAndUpdate(
-                        this.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(this.origin)),
-                        Blocks.DRAGON_EGG.defaultBlockState()
-                );
+     * @author Daniel Hagemeier
+     * @reason Removing previously killed check
+     */
+    @Overwrite
+    public void setDragonKilled(EnderDragon dragon) {
+        if (dragon.getUUID().equals(this.dragonUUID)) {
+            this.dragonEvent.setProgress(0.0F);
+            this.dragonEvent.setVisible(false);
+            this.spawnExitPortal(true);
+            this.spawnNewGateway();
+            this.level
+                    .setBlockAndUpdate(
+                            this.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, EndPodiumFeature.getLocation(this.origin)),
+                            Blocks.DRAGON_EGG.defaultBlockState()
+                    );
 
-        this.previouslyKilled = true;
-        this.dragonKilled = true;
+            this.previouslyKilled = true;
+            this.dragonKilled = true;
+        }
     }
-}
 }
