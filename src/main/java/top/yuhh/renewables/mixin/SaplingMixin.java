@@ -18,8 +18,6 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.UUID;
 
-//  I don't think anyone will ever do this because this is incredibly stupid, but this is in line with other mob heads... so...
-
 @Mixin(SaplingBlock.class)
 public class SaplingMixin {
 
