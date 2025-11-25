@@ -7,9 +7,11 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.AbstractCauldronBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,10 +30,16 @@ public abstract class PointedDripstoneMixin {
     @Unique
     private static Optional<PointedDripstoneBlock.FluidInfo> renewable$getBlockandFluidAboveStalactite(Level level, BlockPos pos, BlockState state) {
         return !isStalactite(state) ? Optional.empty() : findRootBlock(level, pos, state, 11).map(p_221876_ -> {
-            BlockState blockstate = level.getBlockState(p_221876_);
+            BlockPos blockpos = p_221876_.above();
+            BlockState blockstate = level.getBlockState(blockpos);
             Fluid fluid;
-            fluid = level.getFluidState(p_221876_.above()).getType();
-            return new PointedDripstoneBlock.FluidInfo(p_221876_, fluid, blockstate);
+            if (blockstate.is(ModTags.Blocks.DEAD_CORAL_BLOCKS) && !level.dimensionType().ultraWarm()) {
+                fluid = Fluids.WATER;
+            } else {
+                fluid = level.getFluidState(blockpos).getType();
+            }
+
+            return new PointedDripstoneBlock.FluidInfo(blockpos, fluid, blockstate);
         });
     }
 
@@ -55,7 +63,8 @@ public abstract class PointedDripstoneMixin {
         return false;
     }
 
-    @Unique private static void renewable$growCalciteBelow(ServerLevel level, BlockPos pos) {
+    @Unique
+    private static void renewable$growCalciteBelow(ServerLevel level, BlockPos pos) {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
         for (int i = 0; i < 10; i++) {
             blockpos$mutableblockpos.move(Direction.DOWN);
@@ -69,14 +78,18 @@ public abstract class PointedDripstoneMixin {
         }
     }
 
-    @Inject(method = "maybeTransferFluid", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/PointedDripstoneBlock;findFillableCauldronBelowStalactiteTip(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/Fluid;)Lnet/minecraft/core/BlockPos;", shift = At.Shift.BEFORE))
+    @Inject(method = "maybeTransferFluid", at = @At(value = "TAIL"))
     private static void onfluid(BlockState state, ServerLevel level, BlockPos pos, float randChance, CallbackInfo ci) {
         Optional<PointedDripstoneBlock.FluidInfo> optional = renewable$getBlockandFluidAboveStalactite(level, pos, state);
         Fluid fluid = optional.get().fluid();
         BlockPos blockpos1 = findTip(state, level, pos, 11, false);
-        if (optional.get().sourceState().is(ModTags.Blocks.DEAD_CORAL_BLOCKS) && fluid == Fluids.WATER && fluid.isSource(fluid.defaultFluidState())) {
-            if (blockpos1 != null) {
-                renewable$growCalciteBelow(level, blockpos1);
+        if (blockpos1 != null) {
+            if (optional.get().sourceState().is(ModTags.Blocks.DEAD_CORAL_BLOCKS) && fluid == Fluids.WATER) {
+                BlockState blockstate1 = Blocks.CALCITE.defaultBlockState();
+                level.setBlockAndUpdate(optional.get().pos(), blockstate1);
+                Block.pushEntitiesUp(optional.get().sourceState(), blockstate1, level, optional.get().pos());
+                level.gameEvent(GameEvent.BLOCK_CHANGE, optional.get().pos(), GameEvent.Context.of(blockstate1));
+                level.levelEvent(1504, blockpos1, 0);
             }
         }
     }
