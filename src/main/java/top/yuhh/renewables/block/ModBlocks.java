@@ -44,7 +44,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> GRAPHITE_BRICK_WALL = registerBlock("graphite_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofLegacyCopy(GRAPHITE_BLOCK.get()).forceSolidOn()));
 
-    public static final DeferredBlock<Block> NETHERITE_CATALYST = registerBlock("netherite_catalyst", () -> new NetheriteCatalystBlock(BlockBehaviour.Properties.of().noOcclusion()));
+    public static final DeferredBlock<Block> NETHERITE_CATALYST = registerBlock("netherite_catalyst", () -> new OreEnricherBlock(BlockBehaviour.Properties.of().randomTicks().requiresCorrectToolForDrops()));
 
     private  static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

@@ -1,6 +1,7 @@
-// 1.21.1	2025-11-23T00:24:54.876717558	Tags for minecraft:block mod id vanilla_renewables
+// 1.21.1	2025-11-25T03:04:32.645386299	Tags for minecraft:block mod id vanilla_renewables
 6f6763c466f7899a44c7c2ae31622d13f1b50a7d data/minecraft/tags/block/mineable/pickaxe.json
 2db2df5b4c2d4e3b2c0b272933368b70042b2445 data/minecraft/tags/block/needs_iron_tool.json
 1d580e16e244ff892ae0dd7d76d1f5a148007c77 data/minecraft/tags/block/slabs.json
 2da42da41e2a289245a3dae48540d35eae61172a data/minecraft/tags/block/stairs.json
 04a98dc4021e8434b8e5921aed95aa1aef5431f6 data/minecraft/tags/block/walls.json
+a8e3cdd07707862c9287a13bbcb1ad927c21bde8 data/vanilla_renewables/tags/block/dead_coral_blocks.json

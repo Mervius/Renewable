@@ -28,6 +28,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        dropSelf(ModBlocks.NETHERITE_CATALYST.get());
         dropSelf(ModBlocks.GRAPHITE_BLOCK.get());
         dropSelf(ModBlocks.GRAPHITE_SLAB.get());
         dropSelf(ModBlocks.GRAPHITE_STAIRS.get());
