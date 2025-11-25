@@ -1,10 +1,8 @@
 package top.yuhh.renewables.mixin;
 
-import com.sun.jna.platform.win32.OaIdl;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -18,8 +16,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -53,18 +51,13 @@ public class PointedDripstoneMixin {
      * @author
      * @reason
      */
-    @Overwrite
-    private static Optional<PointedDripstoneBlock.FluidInfo> getFluidAboveStalactite(Level level, BlockPos pos, BlockState state) {
+    @Unique
+    private static Optional<PointedDripstoneBlock.FluidInfo> renewable$getBlockandFluidAboveStalactite(Level level, BlockPos pos, BlockState state) {
         return !isStalactite(state) ? Optional.empty() : findRootBlock(level, pos, state, 11).map(p_221876_ -> {
-//      For some reason, the original code has a .above() here and it doesn't work, even in vanilla...
             BlockPos blockpos = p_221876_;
             BlockState blockstate = level.getBlockState(blockpos);
             Fluid fluid;
-            if (blockstate.is(Blocks.MUD) && !level.dimensionType().ultraWarm()) {
-                fluid = Fluids.WATER;
-            } else {
-                fluid = level.getFluidState(blockpos.above()).getType();
-            }
+            fluid = level.getFluidState(blockpos.above()).getType();
             return new PointedDripstoneBlock.FluidInfo(blockpos, fluid, blockstate);
         });
     }
@@ -193,14 +186,15 @@ public class PointedDripstoneMixin {
         return blockstate.isFaceSturdy(level, blockpos, dir) || isPointedDripstoneWithDirection(blockstate, dir);
     }
 
-    @Unique private static void growCalciteBelow(ServerLevel level, BlockPos pos) {
+    @Unique private static void renewable$growCalciteBelow(ServerLevel level, BlockPos pos) {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
         for (int i = 0; i < 10; i++) {
             blockpos$mutableblockpos.move(Direction.DOWN);
             BlockState blockstate = level.getBlockState(blockpos$mutableblockpos);
             if (!canDripThrough(level, blockpos$mutableblockpos, blockstate)) {
-                if (level.getBlockState(blockpos$mutableblockpos.above()).isAir()) {
+                if (level.getBlockState(blockpos$mutableblockpos.above()).isAir() && !(level.getBlockState(blockpos$mutableblockpos).getBlock() instanceof AbstractCauldronBlock)) {
                     level.setBlockAndUpdate(blockpos$mutableblockpos.above(), Blocks.CALCITE.defaultBlockState());
+                    System.out.println("AAAA");
                 }
                 return;
             }
@@ -209,12 +203,12 @@ public class PointedDripstoneMixin {
 
     @Inject(method = "maybeTransferFluid", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/PointedDripstoneBlock;findFillableCauldronBelowStalactiteTip(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/Fluid;)Lnet/minecraft/core/BlockPos;", shift = At.Shift.BEFORE), cancellable = true)
     private static void onfluid(BlockState state, ServerLevel level, BlockPos pos, float randChance, CallbackInfo ci) {
-        Optional<PointedDripstoneBlock.FluidInfo> optional = getFluidAboveStalactite(level, pos, state);
+        Optional<PointedDripstoneBlock.FluidInfo> optional = renewable$getBlockandFluidAboveStalactite(level, pos, state);
         Fluid fluid = optional.get().fluid();
         BlockPos blockpos1 = findTip(state, level, pos, 11, false);
-        if (optional.get().sourceState().is(ModTags.Blocks.DEAD_CORAL_BLOCKS) && fluid == Fluids.WATER) {
+        if (optional.get().sourceState().is(ModTags.Blocks.DEAD_CORAL_BLOCKS) && fluid == Fluids.WATER && fluid.isSource(fluid.defaultFluidState())) {
             if (blockpos1 != null) {
-                growCalciteBelow(level, blockpos1);
+                renewable$growCalciteBelow(level, blockpos1);
             }
         }
     }
