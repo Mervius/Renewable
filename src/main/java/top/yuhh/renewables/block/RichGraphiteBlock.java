@@ -54,13 +54,13 @@ public class RichGraphiteBlock extends DropExperienceBlock {
             }
         }
         if (touchinglava)  {
-            grow(state, level, pos, random, touchinglava);
+            grow(level, pos, random, touchinglava);
         }
-        grow(state, level, pos, random, touchinglava);
+        grow(level, pos, random, touchinglava);
 
     }
 
-    public static void grow(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random, boolean lava) {
+    public static void grow(@NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random, boolean lava) {
         int height = level.getMinBuildHeight();
         if (height > 0) height = 0;
 /*

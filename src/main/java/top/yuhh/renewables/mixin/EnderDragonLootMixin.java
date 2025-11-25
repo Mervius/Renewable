@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Mob.class)
 public class EnderDragonLootMixin {
-    @Inject(method = "dropCustomDeathLoot", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "dropCustomDeathLoot", at = @At("HEAD"))
     protected void dropCustomLoot(ServerLevel level, DamageSource damageSource, boolean recentlyHit, CallbackInfo ci) {
         if ((Object) this.getClass() == EnderDragon.class) {
             if (damageSource.getEntity() instanceof Creeper creeper && creeper.canDropMobsSkull()) {
