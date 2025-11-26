@@ -1,0 +1,28 @@
+package top.yuhh.renewables.util;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.ServerScoreboard;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.VaultBlock;
+import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
+import net.minecraft.world.level.block.entity.vault.VaultConfig;
+import net.minecraft.world.level.block.entity.vault.VaultServerData;
+import net.minecraft.world.level.block.entity.vault.VaultSharedData;
+import net.minecraft.world.level.block.state.BlockState;
+
+import java.lang.reflect.Method;
+
+
+public final class CustomVaultServer {
+    public static void customTick(ServerLevel level, BlockPos pos, BlockState state, VaultConfig config, VaultServerData serverData, CustomVaultServerData customServerData, VaultSharedData sharedData) {
+        VaultBlockEntity.Server.tick(level, pos, state, config, serverData, sharedData);
+//        System.out.println("hi");
+        long moon = (level.getMoonPhase() + 4) % 8;
+        long day = level.getDayTime() / 24000L;
+        long lastmoon = day - moon;
+        if (lastmoon != customServerData.getLastResetTime()) {
+            customServerData.setLastResetTime(level);
+            ((resetPlayers)serverData).resetPlayersMethod();
+        }
+    }
+}

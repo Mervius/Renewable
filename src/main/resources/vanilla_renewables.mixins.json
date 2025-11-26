@@ -5,8 +5,11 @@
   "mixins": [
     "EnderDragonEggMixin",
     "EnderDragonLootMixin",
+    "PointedDripstoneMixin",
     "SaplingMixin",
-    "PointedDripstoneMixin"
+    "VaultBlockEntityMixin",
+    "VaultBlockMixin",
+    "VaultServerDataMixin"
   ],
   "client": [
   ],
