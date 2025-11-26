@@ -26,19 +26,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         buildShapedCompressRecipe(RecipeCategory.MISC, Items.DIAMOND, ModItems.DIAMOND_SHARD, recipeOutput);
 
-        buildShapedSmallCompressRecipe(RecipeCategory.BUILDING_BLOCKS,ModBlocks.POLISHED_GRAPHITE,ModBlocks.GRAPHITE_BLOCK, recipeOutput);
-        buildShapedSmallCompressRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_BRICKS, ModBlocks.POLISHED_GRAPHITE, recipeOutput);
+        buildShapedSmallCompressRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GRAPHITE, ModBlocks.GRAPHITE_BLOCK, 4, recipeOutput);
+        buildShapedSmallCompressRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_BRICKS, ModBlocks.POLISHED_GRAPHITE, 4, recipeOutput);
 
-        buildShapedStairRecipe(RecipeCategory.BUILDING_BLOCKS,ModBlocks.GRAPHITE_STAIRS,ModBlocks.GRAPHITE_BLOCK, recipeOutput);
+        buildShapedStairRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_STAIRS, ModBlocks.GRAPHITE_BLOCK, recipeOutput);
         buildShapedStairRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GRAPHITE_STAIRS, ModBlocks.POLISHED_GRAPHITE, recipeOutput);
         buildShapedStairRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_BRICK_STAIRS, ModBlocks.GRAPHITE_BRICKS, recipeOutput);
 
-        buildShapedSlabRecipe(RecipeCategory.BUILDING_BLOCKS,ModBlocks.GRAPHITE_SLAB,ModBlocks.GRAPHITE_BLOCK, recipeOutput);
+        buildShapedSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_SLAB, ModBlocks.GRAPHITE_BLOCK, recipeOutput);
         buildShapedSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GRAPHITE_SLAB, ModBlocks.POLISHED_GRAPHITE, recipeOutput);
         buildShapedSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_BRICK_SLAB, ModBlocks.GRAPHITE_BRICKS, recipeOutput);
 
 
-        buildShapedWallRecipe(RecipeCategory.BUILDING_BLOCKS,ModBlocks.GRAPHITE_WALL,ModBlocks.GRAPHITE_BLOCK, recipeOutput);
+        buildShapedWallRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_WALL, ModBlocks.GRAPHITE_BLOCK, recipeOutput);
         buildShapedWallRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GRAPHITE_WALL, ModBlocks.POLISHED_GRAPHITE, recipeOutput);
         buildShapedWallRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAPHITE_BRICK_WALL, ModBlocks.GRAPHITE_BRICKS, recipeOutput);
 
@@ -103,8 +103,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, MessageFormat.format("{0}:{1}_from_{2}", Renewables.MOD_ID,BuiltInRegistries.ITEM.getKey(result.asItem()).getPath(), BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()));
     }
 
-    protected void buildShapedSmallCompressRecipe(RecipeCategory recipeCategory, ItemLike result, ItemLike input, RecipeOutput recipeOutput) {
-        ShapedRecipeBuilder.shaped(recipeCategory, result, 1)
+    protected void buildShapedSmallCompressRecipe(RecipeCategory recipeCategory, ItemLike result, ItemLike input, int count, RecipeOutput recipeOutput) {
+        ShapedRecipeBuilder.shaped(recipeCategory, result, count)
                 .pattern("XX")
                 .pattern("XX")
                 .define('X', input)
