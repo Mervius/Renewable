@@ -13,6 +13,7 @@
     "vanilla_renewables:graphite_bricks",
     "vanilla_renewables:graphite_brick_stairs",
     "vanilla_renewables:graphite_brick_slab",
-    "vanilla_renewables:graphite_brick_wall"
+    "vanilla_renewables:graphite_brick_wall",
+    "vanilla_renewables:cracked_graphite_bricks"
   ]
 }

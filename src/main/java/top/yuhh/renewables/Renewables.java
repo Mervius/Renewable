@@ -78,6 +78,7 @@ public class Renewables {
             event.accept(ModBlocks.GRAPHITE_BRICK_STAIRS);
             event.accept(ModBlocks.GRAPHITE_BRICK_SLAB);
             event.accept(ModBlocks.GRAPHITE_BRICK_WALL);
+            event.accept(ModBlocks.CRACKED_GRAPHITE_BRICKS);
         } else if (key == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModBlocks.GRAPHITE_BLOCK);
             event.accept(ModBlocks.LACED_GRAPHITE);

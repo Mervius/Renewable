@@ -33,6 +33,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wallBlockWithItem(ModBlocks.GRAPHITE_WALL, "graphite_block");
         wallBlockWithItem(ModBlocks.POLISHED_GRAPHITE_WALL, "polished_graphite");
         wallBlockWithItem(ModBlocks.GRAPHITE_BRICK_WALL, "graphite_bricks");
+        blockWithItem(ModBlocks.CRACKED_GRAPHITE_BRICKS);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

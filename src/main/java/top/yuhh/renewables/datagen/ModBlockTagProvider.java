@@ -41,7 +41,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.GRAPHITE_BRICKS.get())
                 .add(ModBlocks.GRAPHITE_BRICK_STAIRS.get())
                 .add(ModBlocks.GRAPHITE_BRICK_SLAB.get())
-                .add(ModBlocks.GRAPHITE_BRICK_WALL.get());
+                .add(ModBlocks.GRAPHITE_BRICK_WALL.get())
+                .add(ModBlocks.CRACKED_GRAPHITE_BRICKS.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.LACED_GRAPHITE.get())

@@ -46,6 +46,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         buildSmeltingBlastingRecipe(RecipeCategory.MISC, Items.DIAMOND, ModBlocks.RICH_GRAPHITE, 0.1F, 200, recipeOutput);
         buildSmeltingBlastingRecipe(RecipeCategory.MISC, Items.DIAMOND, ModBlocks.LACED_GRAPHITE, 0.1F, 200, recipeOutput);
 
+        buildSmeltingRecipe(RecipeCategory.MISC, ModBlocks.CRACKED_GRAPHITE_BRICKS, ModBlocks.GRAPHITE_BRICKS, 0.1F, 200, recipeOutput);
+
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_STAIRS, ModBlocks.GRAPHITE_BLOCK, 1, recipeOutput);
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_SLAB, ModBlocks.GRAPHITE_BLOCK, 2, recipeOutput);
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_WALL, ModBlocks.GRAPHITE_BLOCK, 1, recipeOutput);

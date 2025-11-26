@@ -41,6 +41,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.GRAPHITE_BRICK_SLAB.get());
         dropSelf(ModBlocks.GRAPHITE_BRICK_STAIRS.get());
         dropSelf(ModBlocks.GRAPHITE_BRICK_WALL.get());
+        dropSelf(ModBlocks.CRACKED_GRAPHITE_BRICKS.get());
         add(ModBlocks.LACED_GRAPHITE.get(),
                 block -> createMultipleOreDrops(ModBlocks.LACED_GRAPHITE.get(), ModItems.DIAMOND_SHARD.get(), 2.0F, 4.0F));
         add(ModBlocks.RICH_GRAPHITE.get(),
