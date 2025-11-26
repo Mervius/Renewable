@@ -9,8 +9,8 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.*;
-import org.spongepowered.asm.mixin.injection.Inject;
 import top.yuhh.renewables.util.CustomVaultServer;
 import top.yuhh.renewables.util.customVault;
 
@@ -23,18 +23,18 @@ public abstract class VaultBlockMixin extends BaseEntityBlock{
     }
 
     /**
-     * @author
-     * @reason
+     * @author Daniel Hememeier
+     * @reason Calling customTick to add additional method to tick constructor
      */
     @Nullable
     @Overwrite
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level p_323525_, BlockState p_324070_, BlockEntityType<T> p_323541_) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level p_323525_, @NotNull BlockState p_324070_, @NotNull BlockEntityType<T> p_323541_) {
         return p_323525_ instanceof ServerLevel serverlevel
                 ? createTickerHelper (
                 p_323541_,
                 BlockEntityType.VAULT,
                 (p_323957_, p_324322_, p_323828_, p_323769_) -> CustomVaultServer.customTick(
-                        serverlevel, p_324322_, p_323828_, p_323769_.getConfig(), p_323769_.getServerData(), ((customVault)p_323769_).getCustomServerData(), p_323769_.getSharedData()
+                        serverlevel, p_324322_, p_323828_, p_323769_.getConfig(), p_323769_.getServerData(), ((customVault)p_323769_).renewable$getCustomServerData(), p_323769_.getSharedData()
                 )
         )
                 : createTickerHelper(
