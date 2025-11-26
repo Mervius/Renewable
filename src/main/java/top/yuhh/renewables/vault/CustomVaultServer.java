@@ -1,4 +1,4 @@
-package top.yuhh.renewables.util;
+package top.yuhh.renewables.vault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

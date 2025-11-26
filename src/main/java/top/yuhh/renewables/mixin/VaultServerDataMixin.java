@@ -4,7 +4,7 @@ import it.unimi.dsi.fastutil.objects.ObjectLinkedOpenHashSet;
 import net.minecraft.world.level.block.entity.vault.VaultServerData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import top.yuhh.renewables.util.resetPlayers;
+import top.yuhh.renewables.vault.resetPlayers;
 
 import java.util.Set;
 import java.util.UUID;

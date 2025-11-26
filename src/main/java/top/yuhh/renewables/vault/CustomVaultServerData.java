@@ -1,4 +1,4 @@
-package top.yuhh.renewables.util;
+package top.yuhh.renewables.vault;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -11,8 +11,8 @@ import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.*;
-import top.yuhh.renewables.util.CustomVaultServer;
-import top.yuhh.renewables.util.customVault;
+import top.yuhh.renewables.vault.CustomVaultServer;
+import top.yuhh.renewables.vault.customVault;
 
 import javax.annotation.Nullable;
 

@@ -8,7 +8,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.vault.*;
 import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,8 +16,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import top.yuhh.renewables.util.CustomVaultServerData;
-import top.yuhh.renewables.util.customVault;
+import top.yuhh.renewables.vault.CustomVaultServerData;
+import top.yuhh.renewables.vault.customVault;
 
 @Mixin(VaultBlockEntity.class)
 public class VaultBlockEntityMixin implements customVault {

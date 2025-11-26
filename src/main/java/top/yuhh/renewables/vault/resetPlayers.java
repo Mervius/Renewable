@@ -1,4 +1,4 @@
-package top.yuhh.renewables.util;
+package top.yuhh.renewables.vault;
 
 public interface resetPlayers {
 
