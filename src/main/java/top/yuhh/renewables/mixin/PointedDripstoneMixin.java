@@ -57,14 +57,16 @@ public abstract class PointedDripstoneMixin {
     @Inject(method = "maybeTransferFluid", at = @At(value = "TAIL"))
     private static void onfluid(BlockState state, ServerLevel level, BlockPos pos, float randChance, CallbackInfo ci) {
         Optional<PointedDripstoneBlock.FluidInfo> optional = renewable$getBlockandFluidAboveStalactite(level, pos, state);
-        Fluid fluid = optional.get().fluid();
-        BlockPos blockpos1 = findTip(state, level, pos, 11, false);
-        if (blockpos1 != null) {
-            if (optional.get().sourceState().is(ModTags.Blocks.DEAD_CORAL_BLOCKS) && fluid == Fluids.WATER) {
-                BlockState blockstate1 = Blocks.CALCITE.defaultBlockState();
-                level.setBlockAndUpdate(optional.get().pos(), blockstate1);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, optional.get().pos(), GameEvent.Context.of(blockstate1));
-                level.levelEvent(1504, blockpos1, 0);
+        if (optional.isPresent()) {
+            Fluid fluid = optional.get().fluid();
+            BlockPos blockpos1 = findTip(state, level, pos, 11, false);
+            if (blockpos1 != null) {
+                if (optional.get().sourceState().is(ModTags.Blocks.DEAD_CORAL_BLOCKS) && fluid == Fluids.WATER) {
+                    BlockState blockstate1 = Blocks.CALCITE.defaultBlockState();
+                    level.setBlockAndUpdate(optional.get().pos(), blockstate1);
+                    level.gameEvent(GameEvent.BLOCK_CHANGE, optional.get().pos(), GameEvent.Context.of(blockstate1));
+                    level.levelEvent(1504, blockpos1, 0);
+                }
             }
         }
     }
