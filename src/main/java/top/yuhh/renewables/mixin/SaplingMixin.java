@@ -33,7 +33,7 @@ public class SaplingMixin {
         if (randint == 0) {
             if (brightness >= 9) {
                 this.advanceTree(level, pos, state, random);
-            } else if (brightness == 0) {
+            } else if (brightness <= 3) {
                 level.setBlockAndUpdate(pos, Blocks.DEAD_BUSH.defaultBlockState());
                 level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(Blocks.DEAD_BUSH.defaultBlockState()));
                 level.playSound(null,pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
