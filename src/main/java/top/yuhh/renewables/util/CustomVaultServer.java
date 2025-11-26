@@ -13,8 +13,7 @@ public final class CustomVaultServer {
         VaultBlockEntity.Server.tick(level, pos, state, config, serverData, sharedData);
         long moon = (level.getMoonPhase() + 4) % 8;
         long day = level.getDayTime() / 24000L;
-        long lastmoon = day - moon;
-        if (lastmoon != customServerData.getLastResetTime()) {
+        if ((day - moon) != customServerData.getLastResetTime()) {
             customServerData.setLastResetTime(level);
             ((resetPlayers)serverData).renewable$resetPlayersMethod();
         }
