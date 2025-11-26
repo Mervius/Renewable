@@ -2,10 +2,13 @@ package top.yuhh.renewables.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -32,6 +35,9 @@ public class SaplingMixin {
                 this.advanceTree(level, pos, state, random);
             } else if (brightness == 0) {
                 level.setBlockAndUpdate(pos, Blocks.DEAD_BUSH.defaultBlockState());
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(Blocks.DEAD_BUSH.defaultBlockState()));
+                level.playSound(null,pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.levelEvent(2009, pos.below(), 0);
             }
         }
     }

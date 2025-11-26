@@ -10,6 +10,7 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 
@@ -122,6 +123,7 @@ public class RichGraphiteBlock extends DropExperienceBlock {
                 if (block != null) {
                     BlockState blockstate1 = block.defaultBlockState();
                     level.setBlockAndUpdate(blockpos, blockstate1);
+                    level.gameEvent(GameEvent.BLOCK_CHANGE, blockpos, GameEvent.Context.of(blockstate1));
                 }
             }
         }

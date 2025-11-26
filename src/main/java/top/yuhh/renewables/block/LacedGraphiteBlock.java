@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
 import static java.lang.Math.pow;
@@ -77,6 +78,7 @@ public class LacedGraphiteBlock extends DropExperienceBlock {
 */
         if (random.nextInt(floor(100000.0/pow((double) pos.getY() - (double)height + 1, 2.0)) * chance) == 0) {
             level.setBlockAndUpdate(pos, ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState());
+            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(ModBlocks.GRAPHITE_BLOCK.get().defaultBlockState()));
         }
     }
 
