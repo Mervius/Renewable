@@ -38,8 +38,8 @@ public class OreEnricherBlock extends Block {
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         boolean flag = level.hasNeighborSignal(pos);
-        if (flag != state.getValue(POWERED)) {
-            if (!state.getValue(POWERED)) {
+//        if (flag != state.getValue(POWERED)) {
+//            if (!state.getValue(POWERED)) {
 //                BlockState blockabove = level.getBlockState(pos.above());
 //                BlockState blockbelow = level.getBlockState(pos.below());
 //                ResourceLocation abovename = BuiltInRegistries.BLOCK.getKey(blockabove.getBlock());
@@ -65,10 +65,10 @@ public class OreEnricherBlock extends Block {
 //                        level.setBlockAndUpdate(pos.below(), Blocks.STONE.defaultBlockState());
 //                    }
 //                }
-            }
-
-            level.setBlock(pos, state.setValue(POWERED, Boolean.valueOf(flag)), 3);
-        }
+//            }
+//
+//            level.setBlock(pos, state.setValue(POWERED, Boolean.valueOf(flag)), 3);
+//        }
     }
 
     @Override

@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 import top.yuhh.renewables.Renewables;
@@ -14,6 +15,7 @@ import top.yuhh.renewables.block.ModBlocks;
 import top.yuhh.renewables.item.ModItems;
 
 import java.text.MessageFormat;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -48,6 +50,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         buildSmeltingRecipe(RecipeCategory.MISC, ModBlocks.CRACKED_GRAPHITE_BRICKS, ModBlocks.GRAPHITE_BRICKS, 0.1F, 200, recipeOutput);
 
+
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_STAIRS, ModBlocks.GRAPHITE_BLOCK, 1, recipeOutput);
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_SLAB, ModBlocks.GRAPHITE_BLOCK, 2, recipeOutput);
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_WALL, ModBlocks.GRAPHITE_BLOCK, 1, recipeOutput);
@@ -69,6 +72,43 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_BRICK_STAIRS, ModBlocks.GRAPHITE_BRICKS, 1, recipeOutput);
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_BRICK_SLAB, ModBlocks.GRAPHITE_BRICKS, 2, recipeOutput);
         buildStonecuttingRecipe(RecipeCategory.MISC, ModBlocks.GRAPHITE_BRICK_WALL, ModBlocks.GRAPHITE_BRICKS, 1, recipeOutput);
+
+//        TEMPORARY
+        buildBlastingRecipe(RecipeCategory.MISC, Blocks.TUFF, Blocks.ANDESITE, 0.1F, 200, recipeOutput);
+        buildBlastingRecipe(RecipeCategory.MISC, Blocks.BLACKSTONE, Blocks.COBBLESTONE, 0.1F, 200, recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.NETHERRACK, 2)
+                .pattern("X_")
+                .pattern("_X")
+                .define('X', Blocks.COBBLESTONE)
+                .define('_', Blocks.NETHER_WART)
+                .unlockedBy("has_cobblestone",has(Blocks.COBBLESTONE.asItem()))
+                .unlockedBy("has_nether_wart", has(Blocks.NETHER_WART.asItem()))
+                .showNotification(true)
+                .save(recipeOutput, MessageFormat.format("{0}:netherrack_from_cobblestone_and_nether_wart", Renewables.MOD_ID));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.ANCIENT_DEBRIS, 2)
+                .pattern("_A_")
+                .pattern("_X_")
+                .pattern("_A_")
+                .define('X', Items.NETHERITE_SCRAP)
+                .define('_', Blocks.NETHERRACK)
+                .define('A', ModBlocks.LACED_GRAPHITE)
+                .unlockedBy("has_laced_graphite",has(ModBlocks.LACED_GRAPHITE.asItem()))
+                .unlockedBy("has_nether_wart", has(Blocks.NETHERRACK.asItem()))
+                .unlockedBy("has_netherite_scrap",has(Items.NETHERITE_SCRAP))
+                .showNotification(true)
+                .save(recipeOutput, MessageFormat.format("{0}:ancient_debris_from_crafting", Renewables.MOD_ID));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.ANCIENT_DEBRIS, 1)
+                .pattern(" A ")
+                .pattern("AXA")
+                .pattern(" A ")
+                .define('X', ModBlocks.GRAPHITE_BLOCK.asItem())
+                .define('A', Items.DIAMOND)
+                .unlockedBy("has_laced_graphite",has(ModBlocks.LACED_GRAPHITE.asItem()))
+                .unlockedBy("has_diamond",has(Items.DIAMOND))
+                .showNotification(true)
+                .save(recipeOutput, MessageFormat.format("{0}:laced_graphite_from_crafting", Renewables.MOD_ID));
+
+
     }
 
     protected void buildStonecuttingRecipe(RecipeCategory recipeCategory, ItemLike result, ItemLike input, int count, RecipeOutput recipeOutput) {
