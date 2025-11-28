@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "X": {
+      "item": "vanilla_renewables:graphite_block"
+    }
+  },
+  "pattern": [
+    " A ",
+    "AXA",
+    " A "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:ancient_debris"
+  }
+}

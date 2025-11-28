@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-25T23:50:49.917583301	Loot Tables
+// 1.21.1	2025-11-27T21:33:02.539104322	Loot Tables
 498903277f6cf00d014d75a52ea82e456d1700e5 data/vanilla_renewables/loot_table/blocks/cracked_graphite_bricks.json
 5e266a5a8836440f9f4ff837e968923a11ab3fe1 data/vanilla_renewables/loot_table/blocks/graphite_block.json
 03c561110a8621b268c9cc1eaf258c03b1164181 data/vanilla_renewables/loot_table/blocks/graphite_brick_slab.json
@@ -9,7 +9,6 @@
 99527d5920c0551dc5b5270a649473332183f5d6 data/vanilla_renewables/loot_table/blocks/graphite_stairs.json
 556c14f1ad3702dab71cce508b9b0e39cfec9007 data/vanilla_renewables/loot_table/blocks/graphite_wall.json
 0a8da3940aefc431099742556f2210b70afe6ca6 data/vanilla_renewables/loot_table/blocks/laced_graphite.json
-bbed7808fb2c2b01ae2371fa54ccada49f273260 data/vanilla_renewables/loot_table/blocks/netherite_catalyst.json
 7fd7a0833cc39baa3638d9637ecf0d99781d8237 data/vanilla_renewables/loot_table/blocks/polished_graphite.json
 404f30761acf9dc934cd6047d877094e38af3d54 data/vanilla_renewables/loot_table/blocks/polished_graphite_slab.json
 1726d723d82b8156634fb2b83b0546e18c78f031 data/vanilla_renewables/loot_table/blocks/polished_graphite_stairs.json

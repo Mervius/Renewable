@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_laced_graphite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "vanilla_renewables:laced_graphite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nether_wart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherrack"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_netherite_scrap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_scrap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanilla_renewables:ancient_debris_from_crafting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_laced_graphite",
+      "has_nether_wart",
+      "has_netherite_scrap"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanilla_renewables:ancient_debris_from_crafting"
+    ]
+  }
+}

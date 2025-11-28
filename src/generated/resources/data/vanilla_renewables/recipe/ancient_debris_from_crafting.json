@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "vanilla_renewables:laced_graphite"
+    },
+    "X": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "_": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "pattern": [
+    "_A_",
+    "_X_",
+    "_A_"
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:ancient_debris"
+  }
+}
