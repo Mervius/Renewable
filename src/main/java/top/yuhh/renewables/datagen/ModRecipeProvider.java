@@ -97,17 +97,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_netherite_scrap",has(Items.NETHERITE_SCRAP))
                 .showNotification(true)
                 .save(recipeOutput, MessageFormat.format("{0}:ancient_debris_from_crafting", Renewables.MOD_ID));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LACED_GRAPHITE, 1)
-                .pattern(" A ")
-                .pattern("AXA")
-                .pattern(" A ")
-                .define('X', ModBlocks.GRAPHITE_BLOCK)
-                .define('A', Items.DIAMOND)
-                .unlockedBy("has_laced_graphite",has(ModBlocks.GRAPHITE_BLOCK))
-                .unlockedBy("has_diamond",has(Items.DIAMOND))
-                .showNotification(true)
-                .save(recipeOutput, MessageFormat.format("{0}:laced_graphite_from_crafting", Renewables.MOD_ID));
-
 
     }
 
