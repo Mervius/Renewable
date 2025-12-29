@@ -34,6 +34,9 @@ displayURL="https://github.com/Mervius/Renewable"
 
 # logo
 logoFile = "icon.png"
+logoBlue = false
+
+updateJSONURL = "https://github.com/Mervius/Renewable/tree/main/resources/versions.json"
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional

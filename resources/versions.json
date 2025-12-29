@@ -1,0 +1,15 @@
+{
+  "homepage": "https://github.com/Mervius/Renewable",
+  "1.21.1": {
+    "2025.11.23_alpha.1": "https://github.com/Mervius/Renewable/releases/tag/2025.11.23_alpha.1",
+    "2025.11.23_alpha.2": "https://github.com/Mervius/Renewable/releases/tag/2025.11.23_alpha.2",
+    "2025.11.27_alpha.1": "https://github.com/Mervius/Renewable/releases/tag/2025.11.27_alpha.1",
+    "2025.11.27_alpha.2": "https://github.com/Mervius/Renewable/releases/tag/2025.11.27_alpha.2",
+    "2025.12.29_alpha.1": "https://github.com/Mervius/Renewable/releases/tag/2025.12.29_alpha.1",
+    "2025.12.29_alpha.2": "https://github.com/Mervius/Renewable/releases/tag/2025.12.29_alpha.2"
+  },
+  "promos": {
+    "<mcversion>-latest": "2025.12.29_alpha.2",
+    "<mcversion>-recommended": "2025.12.29_alpha.2"
+  }
+}
