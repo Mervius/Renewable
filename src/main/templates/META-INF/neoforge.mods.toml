@@ -71,7 +71,7 @@ file="${mod_id}.accesstransformer_main.cfg"
 modId="vanilla_renewables"
 type="required"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="${version}"
+versionRange="${mod_version}"
 ordering="NONE"
 side="BOTH"
 
