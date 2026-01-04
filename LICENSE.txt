@@ -2,6 +2,14 @@ MIT License
 
 Copyright (c) 2025 Daniel Hagemeier
 
+This license applies to all files in this repository excepting:
+
+  1.  Files provided by the neoforge template.
+    a. Those files are covered by the NEOFORGE_TEMPLACE_LICENSE.txt found in the root of the project.
+
+  2.  Files with their own license headers.
+    a.  These files are covered by the license found within said license headers.
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
