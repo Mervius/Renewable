@@ -68,12 +68,11 @@ file="${mod_id}.accesstransformer_main.cfg"
 # The coremods config file path is not configurable and is always loaded from META-INF/coremods.json
 
 [[dependencies.${mod_id}]]
-modId="vanilla_renewables"
-type="required"
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="${mod_version}"
-ordering="NONE"
-side="BOTH"
+    modId="vanilla_renewables"
+    type="required"
+    versionRange="${mod_version}"
+    ordering="NONE"
+    side="BOTH"
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.${mod_id}]] #optional
