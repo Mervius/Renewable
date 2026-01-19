@@ -34,7 +34,7 @@ displayURL="https://github.com/Mervius/Renewable/releases"
 
 # logo
 logoFile = "icon.png"
-logoBlue = false
+logoBlur = false
 
 updateJSONURL = "https://raw.githubusercontent.com/Mervius/Renewable/main/resources/versions.json"
 
