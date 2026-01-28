@@ -68,7 +68,7 @@ public class RichGraphiteBlock extends DropExperienceBlock {
         int maxheight = level.getMaxBuildHeight();
         int height = pos.getY();
 /*
-    This essentially will resolve to Y = (991^((1/A-B)(X-B))) * (-1.25^(-X+B-0.5) + 1) where X is the block's height, A is the maximum build limit, and B is the minimum build limit.
+    This essentially will resolve to Y = (991^((1/A-B)(X-B)) + 9) * (-1.25^(-X+B-0.5) + 1) where X is the block's height, A is the maximum build limit, and B is the minimum build limit.
     The clamp is to avoid any accidental overflows and negatives
     This should always return 1 at the minimum build height and 1000 at the maximum build heigh, regardless of what they are(as long as the maximum is greater than the minimum)
 */
