@@ -15,7 +15,6 @@ import top.yuhh.renewables.block.ModBlocks;
 import top.yuhh.renewables.item.ModItems;
 
 import java.text.MessageFormat;
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {

@@ -16,16 +16,6 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 @EventBusSubscriber(modid = Renewables.MOD_ID, value = Dist.CLIENT)
 public class RenewablesClient {
 
-//    @SubscribeEvent
-//    public static void registerRenderTypes(FMLClientSetupEvent event) {
-//        event.enqueueWork(() -> {
-//            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DIAMOND_CLUSTER.get(), RenderType.cutout());
-//            ItemBlockRenderTypes.setRenderLayer(ModBlocks.LARGE_DIAMOND_BUD.get(), RenderType.cutout());
-//            ItemBlockRenderTypes.setRenderLayer(ModBlocks.MEDIUM_DIAMOND_BUD.get(), RenderType.cutout());
-//            ItemBlockRenderTypes.setRenderLayer(ModBlocks.SMALL_DIAMOND_BUD.get(), RenderType.cutout());
-//        });
-//    }
-
     public RenewablesClient(ModContainer container) {
         // Allows NeoForge to create a config screen for this mod's configs.
         // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.

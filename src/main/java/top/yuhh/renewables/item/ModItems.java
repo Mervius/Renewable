@@ -9,8 +9,7 @@ import top.yuhh.renewables.Renewables;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Renewables.MOD_ID);
 
-    public static final DeferredItem<Item> DIAMOND_SHARD = ITEMS.register("diamond_shard",
-            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> DIAMOND_SHARD = ITEMS.register("diamond_shard", () -> new Item(new Item.Properties()));
 
 
 
