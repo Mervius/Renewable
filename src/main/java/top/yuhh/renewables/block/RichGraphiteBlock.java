@@ -10,6 +10,7 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
@@ -54,6 +55,7 @@ public class RichGraphiteBlock extends DropExperienceBlock {
                 break;
             }
         }
+//        IntelliJ says this is always true but it's not.
         if (touchinglava)  {
             grow(level, pos, random, touchinglava);
         }
@@ -62,13 +64,15 @@ public class RichGraphiteBlock extends DropExperienceBlock {
     }
 
     public static void grow(@NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random, boolean lava) {
-        int height = level.getMinBuildHeight();
-        if (height > 0) height = 0;
+        int minheight = level.getMinBuildHeight();
+        int maxheight = level.getMaxBuildHeight();
+        int height = pos.getY();
 /*
-    This essentially will resolve to Y = 1.0244^(X+64) where X is the block's height in any world without a modified minimum build limit. But I didn't hardcode in +64 just in case.
+    This essentially will resolve to Y = (991^((1/A-B)(X-B))) * (-1.25^(-X+B-0.5) + 1) where X is the block's height, A is the maximum build limit, and B is the minimum build limit.
     The clamp is to avoid any accidental overflows and negatives
+    This should always return 1 at the minimum build height and 1000 at the maximum build heigh, regardless of what they are(as long as the maximum is greater than the minimum)
 */
-        if (random.nextInt(clamp(floor(pow(1.0244,pos.getY() - height)),1,10000) + 2) == 0) {
+        if (random.nextInt(clamp(floor(((pow(pow(991,1.0/(maxheight-minheight)),height - minheight) + 10) * (-pow(1.25,-height + minheight - 0.5) + 1))),1,1000)) == 0) {
             Block block = null;
             BlockPos blockpos = pos;
             int step = 0;
@@ -80,7 +84,7 @@ public class RichGraphiteBlock extends DropExperienceBlock {
 
             int[] counts = new int[2]; // counts[0] = LACED, counts[1] = RICH
             level.getBlockStates(box).forEach(blocks ->{
-                if (blocks.is(ModBlocks.LACED_GRAPHITE)) {
+                if (blocks.is(ModBlocks.LACED_GRAPHITE) && !blocks.getValue(BlockStateProperties.PERSISTENT)) {
                     counts[0]++;
                 } else if (blocks.is(ModBlocks.RICH_GRAPHITE)) {
                     counts[1]++;
