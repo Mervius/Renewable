@@ -55,9 +55,9 @@ public class RichGraphiteBlock extends DropExperienceBlock {
                 break;
             }
         }
-//        IntelliJ says this is always true but it's not.
+
         if (touchinglava)  {
-            grow(level, pos, random, touchinglava);
+            grow(level, pos, random, true);
         }
         grow(level, pos, random, touchinglava);
 
