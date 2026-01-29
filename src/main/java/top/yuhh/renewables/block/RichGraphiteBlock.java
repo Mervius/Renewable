@@ -72,7 +72,7 @@ public class RichGraphiteBlock extends DropExperienceBlock {
     The clamp is to avoid any accidental overflows and negatives
     This should always return 1 at the minimum build height and 1000 at the maximum build heigh, regardless of what they are(as long as the maximum is greater than the minimum)
 */
-        if (random.nextInt(clamp(floor(((pow(pow(991,1.0/(maxheight-minheight)),height - minheight) + 9) * (-pow(1.25,-height + minheight - 0.5) + 1))),1,1000)) == 0) {
+        if (random.nextInt(clamp(floor(((pow(991, (double) (height - minheight) /(maxheight-minheight)) + 9) * (-pow(1.25,-height + minheight - 0.5) + 1))),1,1000)) == 0) {
             Block block = null;
             BlockPos blockpos = pos;
             int step = 0;
